@@ -63,6 +63,7 @@ nav ul li {
 	text-transform: uppercase;
 	font-weight: 700;
 	font-size: 1.2em;
+	font-family: Open Sans;
 }
 
 nav ul li:first-child {
@@ -74,7 +75,6 @@ nav ul li:last-child {
 }
 
 nav a {
-
 	color: #fff;
 }
 
@@ -83,7 +83,6 @@ h1 {
 	font-size: 3em;
 	padding: 0.8em;
 	color: #fff;
-
 }
 
 /*style for hidden modal*/
@@ -102,7 +101,7 @@ h1 {
 
 .content {
 	color: #fff;
-	background: #E88E17;
+	background: #F5C484;
 	position: relative;
 	height: auto;
 	width: 600px;
@@ -121,7 +120,8 @@ h1 {
 	opacity: 0.8;
 	background: rgba(0,0,0,0.1);
 	border-radius: 3px 3px 0 0;
-	background-color: #F5C484;
+	background-color: #E88E17;
+	font-family: Open Sans;
 }
 
 .content > div {
@@ -129,6 +129,7 @@ h1 {
 	margin: 0;
 	font-weight: 300;
 	font-size: 1.15em;
+	font-family: Open Sans;
 }
 
 .content > div p {
@@ -149,10 +150,12 @@ h1 {
 	display: block;	
 	list-style-type: disc;
 	line-height: 1.5em;
+	font-family: Open Sans;
 }
 
 .content > div ul li strong{
-	text-decoration: underline;
+	font-weight: 700;
+	font-style: italic;
 }
 
 .content > div a {
@@ -162,6 +165,7 @@ h1 {
 	padding: 0.5em 2em;
 	margin-bottom: 50px;
 	border-radius: 3px;
+	font-family: Open Sans;
 }
 
 /*---------------------------------------------------------------------------------
