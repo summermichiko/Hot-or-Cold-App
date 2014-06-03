@@ -21,7 +21,7 @@
 html {
 	width: 100%;
 	height: 100%;
-	background-color: #FFF884;
+	background-color: #002538;
 }
 
 body {
@@ -30,7 +30,7 @@ body {
 	height: 96%;
 	margin: 0.8em auto;
 	font-family: Raleway;
-	background-color: #FFB428;
+	background-color: #0A5378;
 	text-align: center;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
@@ -91,7 +91,7 @@ h1 {
 	width: 100%;
 	height: 100%;
 	color: #fff;
-	background: #605063;
+	background: #002538;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -102,7 +102,7 @@ h1 {
 
 .content {
 	color: #fff;
-	background: #FFB428;
+	background: #E88E17;
 	position: relative;
 	height: auto;
 	width: 600px;
@@ -121,6 +121,7 @@ h1 {
 	opacity: 0.8;
 	background: rgba(0,0,0,0.1);
 	border-radius: 3px 3px 0 0;
+	background-color: #F5C484;
 }
 
 .content > div {
@@ -156,7 +157,7 @@ h1 {
 
 .content > div a {
 	font-size: 0.8em;
-	background: #AC94B0;
+	background: #0A5378;
 	color: #FFFFFF;
 	padding: 0.5em 2em;
 	margin-bottom: 50px;
@@ -169,7 +170,7 @@ h1 {
 
 .game {
 	position: relative;
-	background-color: #FF4E50;
+	background-color: #9FD4C1;
 	width: 380px;
 	height: 380px;
 	-webkit-border-radius: 4px;
@@ -180,7 +181,7 @@ h1 {
 
 h2 {
 	margin: 0 auto;	
-	background: #FF3900;
+	background: #E88E17;
 	padding: 1em 0.4em;
 	font-size: 1.5em;
 	font-weight: 400;
@@ -195,10 +196,11 @@ h2 {
 	margin-top: 0.5em;
 	font-size: 1.8em;
 	padding-bottom: 0.5em;
+	color: #002538;
 }
 
 #count {
-	color: #825559;
+	color: #E88E17;
 	font-weight: 700;
 	font-size: 1.5em;
 }
@@ -209,16 +211,16 @@ input {
 	display: block;
 	padding: 0.8em 0;
 	margin: 0.8em auto 0;
-	background: #50597b;
-	color: #fff;
-	border: solid 1px #1f253d;
+	background: #FFFFFF;
+	color: #002538;
+	border: none;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 }
 
 input.button {
-	background: #1F253D;
+	background: #002538;
 	color: #95a5a6;
 	font-size: 2em;
 	padding: 0.2em;
@@ -230,7 +232,7 @@ input.button {
 }
 
 input.button:hover {
-	background: #e64c65;
+	background: #E88E17;
 	color: #fff;
 	-webkit-transition: background 1s ease-in-out;
 	-moz-transition: background 1s ease-in-out;
@@ -269,7 +271,7 @@ input:focus {
 ul.guessBox {
 	height: 80px;
 	margin: 10px auto 0;
-	background: #11a8ab;
+	background: #46C79A;
 	padding: 0.5em;
 	display: block;
 	line-height: 2em;
@@ -280,7 +282,7 @@ ul.guessBox {
 }
 ul.guessBox li {
 	display: inline;
-	background-color: #1a4e95;
+	background-color: #0A5378;
 	padding: 0.3em;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
