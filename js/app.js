@@ -100,7 +100,7 @@ var checkTemperature = function() {
 			guessCountDisplay();
 			guessCountDown();
 			checkTemperature();
-			if(guessesLeft < 1) {
+			if(guessesLeft < 1) { //countDown
 				AddFeedback("Sorry, try again!")
 			}
 		}
@@ -109,17 +109,16 @@ var checkTemperature = function() {
 	}
 	});
 
-/* --- "Get a Hint Button" --- */
-	$("#hintButton").click(function() {
-		$("#answerSection").append("The answer is " + randomNumber + ".");
-	});
-
-/* --- "Check for repeated answers" --*/
 	for(x=0; x<pastGuesses.length; x++) {
 		if(newGuess == pastGuesses[x]) {
 			AddFeedback("You've already tried that number! Guess again!");
 		}
 	}
+
+/* --- "Get a Hint Button" --- */
+	$("#hintButton").click(function() {
+		$("#answerSection").append("The answer is " + randomNumber + ".");
+	});	
 
 /*-- "+ New Game" click to reset --*/
 	$(".new").click(function(){
@@ -127,6 +126,8 @@ var checkTemperature = function() {
 		clearGuess();
 		guessCount = 0;
 		wonGame = false;
+		guessesLeft = 5;
+		guessCountDown();
 		removePastGuesses();
 		guessCountDisplay();
 		AddFeedback("Make your guess!");
