@@ -11,7 +11,6 @@ $(document).ready(function(){
   		$(".overlay").fadeOut(1000);
   	});
 
-
 /*--- Declare Variables ---*/
 var guessCount = 0;
 var newGuess;
@@ -22,6 +21,7 @@ var wonGame = false;
 /*--- Generate a random number ---*/
 var generateNewNumber = function(){
 	randomNumber = Math.floor((Math.random()*100)+1);
+	console.log("randomNumber is " +randomNumber);
 };
 
 /*--- Clear guess text section ---*/
@@ -80,8 +80,8 @@ generateNewNumber();
 	if (wonGame === false) {
 		newGuess = +$("#userGuess").val();
 		/*--- Check if valid number --*/
-		if (newGuess % 1 !== 0 || newGuess > 100 || newGuess < 1 || newGuess == ) {
-			alert("Not a valid number");
+		if (newGuess % 1 !== 0 || newGuess > 100 || newGuess < 1) {
+			alert("You have entered an invalid number");
 			return(false);
 		} else {
 			event.preventDefault();
@@ -96,6 +96,13 @@ generateNewNumber();
 	}
 
 	});
+
+/* --- "Get a Hint Button" --- */
+	$("#hintButton").click(function() {
+		$("#answerSection").append("The answer is " + randomNumber + ".");
+	}) 
+
+
 
 /*-- "+ New Game" click to reset --*/
 	$(".new").click(function(){

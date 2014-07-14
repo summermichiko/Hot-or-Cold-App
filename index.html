@@ -55,10 +55,12 @@
 
 			<form>
 				<input type="text" name="userGuess" id="userGuess" class="text" maxlength="3" autocomplete="off" placeholder="Enter your Guess" required/>
-      			<input type="submit" id="guessButton" class="button" name="submit" value="Guess"/>
+      			<input type="submit" id="guessButton" class="button" name="submit" value="Make a Guess"/>
+      			<input type="submit" id="hintButton" class="button" name="submit" value="Get a Hint"/>
 			</form>
 
       		<p>Guess #<span id="count">0</span></p>
+      		<p id="answerSection"></p>
 
 			<ul id="guessList" class="guessBox clearfix">
 			</ul>
