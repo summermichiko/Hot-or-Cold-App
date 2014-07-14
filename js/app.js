@@ -93,22 +93,21 @@ var checkTemperature = function() {
 			event.preventDefault();
 			pastGuesses.push(newGuess);
 			console.log(pastGuesses);
-			$(".guessBox").append("<li>" +newGuess+ "</li>");
+			$(".guessBox").append("<li>" + newGuess + "</li>");
 			clearGuess();
 			guessCount++;
 			guessesLeft--;
 			guessCountDisplay();
 			guessCountDown();
 			checkTemperature();
+			if(guessesLeft < 1) {
+				AddFeedback("Sorry, try again!")
+			}
 		}
 	} else {
 		AddFeedback("You've already won! Start a new game.");
 	}
 	});
-
-	if(guessCount < 1) {
-		AddFeedback("Sorry, try again!")
-	}
 
 /* --- "Get a Hint Button" --- */
 	$("#hintButton").click(function() {
