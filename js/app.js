@@ -80,6 +80,14 @@ var checkTemperature = function() {
 	}
 };
 
+var checkForRepeats = function(newGuess) {  //check for repeated numbers
+	for(x=0; x<pastGuesses.length; x++) { 
+		if(pastGuesses[x] == newGuess) {
+			AddFeedback("You've already tried that number! Guess again!");
+		}
+	}
+}
+
 /* --- User inputs guess --*/
 	$("form").submit(function(event){
 	event.preventDefault();
@@ -100,6 +108,7 @@ var checkTemperature = function() {
 			guessCountDisplay();
 			guessCountDown();
 			checkTemperature();
+			checkForRepeats(); //calling function to check for repeats
 			if(guessesLeft < 1) { //countDown
 				AddFeedback("Sorry, try again!")
 			}
@@ -108,12 +117,6 @@ var checkTemperature = function() {
 		AddFeedback("You've already won! Start a new game.");
 	}
 	});
-
-	for(x=0; x<pastGuesses.length; x++) {
-		if(newGuess == pastGuesses[x]) {
-			AddFeedback("You've already tried that number! Guess again!");
-		}
-	}
 
 /* --- "Get a Hint Button" --- */
 	$("#hintButton").click(function() {
