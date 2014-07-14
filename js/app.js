@@ -11,6 +11,7 @@ $(document).ready(function(){
   		$(".overlay").fadeOut(1000);
   	});
 
+
 /*--- Declare Variables ---*/
 var guessCount = 0;
 var newGuess;
@@ -20,8 +21,7 @@ var wonGame = false;
 
 /*--- Generate a random number ---*/
 var generateNewNumber = function(){
-	randomNumber = Math.floor((Math.random()*101)+1);
-	console.log("randomNumber is " +randomNumber);
+	randomNumber = Math.floor((Math.random()*100)+1);
 };
 
 /*--- Clear guess text section ---*/
@@ -80,7 +80,7 @@ generateNewNumber();
 	if (wonGame === false) {
 		newGuess = +$("#userGuess").val();
 		/*--- Check if valid number --*/
-		if (newGuess % 1 !== 0 || newGuess > 100 || newGuess < 0) {
+		if (newGuess % 1 !== 0 || newGuess > 100 || newGuess < 1 || newGuess == ) {
 			alert("Not a valid number");
 			return(false);
 		} else {
