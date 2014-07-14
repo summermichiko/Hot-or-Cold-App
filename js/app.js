@@ -17,12 +17,17 @@ var newGuess;
 var randomNumber;
 var distanceFromNumber;
 var wonGame = false;
+var pastGuesses =[];
+var guessesLeft = 5;
 
 /*--- Generate a random number ---*/
 var generateNewNumber = function(){
 	randomNumber = Math.floor((Math.random()*100)+1);
 	console.log("randomNumber is " +randomNumber);
 };
+
+/* ---Page Load, generate random number */
+generateNewNumber();
 
 /*--- Clear guess text section ---*/
 var clearGuess = function() {
@@ -34,15 +39,20 @@ var removePastGuesses = function() {
 	$("ul.guessBox li").remove();
 };
 
-/*--- Display the number of guesses ---*/
+/*--- Display the number of guesses taken ---*/
 var guessCountDisplay = function() {
 	$("#count").text(guessCount);
 };
+
+/*--- Display the number of guesses left ---*/
+var guessCountDown = function() {
+	$("#countDown").text(guessesLeft);
+};
  
  /*--- Display the Feedback ---*/
- var AddFeedback = function(feedback) {
+var AddFeedback = function(feedback) {
 	$("#feedback").text(feedback);
- };
+};
 
  /*--- Check how far the guess is and provide feedback---*/
 var checkTemperature = function() {
@@ -70,11 +80,7 @@ var checkTemperature = function() {
 	}
 };
 
-/* ---Page Load, generate random number */
-generateNewNumber();
-
 /* --- User inputs guess --*/
-
 	$("form").submit(function(event){
 	event.preventDefault();
 	if (wonGame === false) {
@@ -85,24 +91,36 @@ generateNewNumber();
 			return(false);
 		} else {
 			event.preventDefault();
+			pastGuesses.push(newGuess);
+			console.log(pastGuesses);
 			$(".guessBox").append("<li>" +newGuess+ "</li>");
 			clearGuess();
 			guessCount++;
+			guessesLeft--;
 			guessCountDisplay();
+			guessCountDown();
 			checkTemperature();
 		}
 	} else {
-		AddFeedback("You already won! Start a new game.");
+		AddFeedback("You've already won! Start a new game.");
 	}
-
 	});
+
+	if(guessCount < 1) {
+		AddFeedback("Sorry, try again!")
+	}
 
 /* --- "Get a Hint Button" --- */
 	$("#hintButton").click(function() {
 		$("#answerSection").append("The answer is " + randomNumber + ".");
-	}) 
+	});
 
-
+/* --- "Check for repeated answers" --*/
+	for(x=0; x<pastGuesses.length; x++) {
+		if(newGuess == pastGuesses[x]) {
+			AddFeedback("You've already tried that number! Guess again!");
+		}
+	}
 
 /*-- "+ New Game" click to reset --*/
 	$(".new").click(function(){
@@ -113,6 +131,7 @@ generateNewNumber();
 		removePastGuesses();
 		guessCountDisplay();
 		AddFeedback("Make your guess!");
+		$("#answerSection").html("");
 	});
 });
 
