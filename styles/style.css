@@ -27,7 +27,7 @@ html {
 body {
 	position: relative;
 	width: 98%;
-	height: 96%;
+	height: 98%;
 	margin: 0.8em auto;
 	font-family: Raleway;
 	background-color: #0A5378;
@@ -154,7 +154,7 @@ h1 {
 	font-family: Open Sans;
 }
 
-.content > div ul li strong{
+.content > div ul li strong {
 	font-weight: 700;
 	font-style: italic;
 }
@@ -173,18 +173,7 @@ h1 {
    Game Section Styles
 ---------------------------------------------------------------------------------*/
 
-.game {
-	position: relative;
-	background-color: #9FD4C1;
-	width: 380px;
-	height: 380px;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-	margin: 0 auto;
-}
-
-h2 {
+h2 { /*top orange section*/
 	margin: 0 auto;	
 	background: #E88E17;
 	padding: 1em 0.4em;
@@ -197,14 +186,25 @@ h2 {
 	color: #fff;
 }
 
-.game p {
+.game { /*main green section*/
+	position: relative;
+	background-color: #9FD4C1;
+	width: 380px;
+	height: 380px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	margin: 0 auto;
+}
+
+.game p { /*Guess # text*/
 	margin-top: 0.5em;
 	font-size: 1.8em;
 	padding-bottom: 0.5em;
 	color: #002538;
 }
 
-#count {
+#count { /*number count*/
 	color: #E88E17;
 	font-weight: 700;
 	font-size: 1.5em;
@@ -231,7 +231,7 @@ input {
 	border-radius: 4px;
 }
 
-input.button {
+input.button { /* two buttons*/
 	background: #002538;
 	color: #95a5a6;
 	font-size: 2em;
@@ -280,7 +280,7 @@ input:focus {
    color: #95a5a6; 
 }
 
-ul.guessBox {
+ul.guessBox { /*box storing guesses*/
 	height: 80px;
 	margin: 10px auto 0;
 	background: #46C79A;
@@ -293,7 +293,7 @@ ul.guessBox {
 	overflow: auto;
 	border-radius: 5px;
 }
-ul.guessBox li {
+ul.guessBox li { /*box around individual numbers*/
 	display: inline;
 	background-color: #0A5378;
 	padding: 0.3em;
@@ -305,7 +305,7 @@ ul.guessBox li {
 	color: #fff;
 }
 
-#remainingGuesses {
+#remainingGuesses { /*text at bottom*/
 	color: #FFFFFF;
 }
 
