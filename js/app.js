@@ -51,6 +51,7 @@ var guessCountDown = function() {
  
  /*--- Display the Feedback ---*/
 var AddFeedback = function(feedback) {
+	debugger;
 	$("#feedback").text(feedback);
 };
 
@@ -80,12 +81,20 @@ var checkTemperature = function() {
 	}
 };
 
-var checkForRepeats = function(newGuess) {  //check for repeated numbers
-	for(x=0; x<pastGuesses.length; x++) { 
+var checkForRepeats = function(newGuess) { 
+	console.log(newGuess);
+ //check for repeated numbers
+	if(pastGuesses.length !== 1){
+		for(x=0; x<pastGuesses.length; x++) { 
 		if(pastGuesses[x] == newGuess) {
 			AddFeedback("You've already tried that number! Guess again!");
+		} else {
+			
+		}
+		// add else statement, remember when to push valid number in array
 		}
 	}
+	
 }
 
 /* --- User inputs guess --*/
@@ -102,13 +111,13 @@ var checkForRepeats = function(newGuess) {  //check for repeated numbers
 			pastGuesses.push(newGuess);
 			console.log(pastGuesses);
 			$(".guessBox").append("<li>" + newGuess + "</li>");
+			checkForRepeats(newGuess); //calling function to check for repeats
 			clearGuess();
 			guessCount++;
 			guessesLeft--;
 			guessCountDisplay();
 			guessCountDown();
 			checkTemperature();
-			checkForRepeats(); //calling function to check for repeats
 			if(guessesLeft < 1) { //countDown
 				AddFeedback("Sorry, try again!")
 			}
