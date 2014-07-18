@@ -60,22 +60,36 @@ var checkTemperature = function() {
 	distanceFromNumber = (Math.abs(randomNumber - newGuess));
 	if (distanceFromNumber === 0) {
 		AddFeedback("You Got It!!!");
-		$("#userGuess").val(randomNumber + "!");
+		$("#userGuess").val(randomNumber + " is correct!");
 		wonGame = true;
-	} else if (distanceFromNumber < 2 ) {
-		AddFeedback("Scalding!");
-	} else if (distanceFromNumber < 4 ) {
-		AddFeedback("Very Hot!");
-	} else if (distanceFromNumber < 8 ) {
-		AddFeedback("Hot!");
-	} else if (distanceFromNumber < 13 ) {
-		AddFeedback("Warm");
-	} else if (distanceFromNumber < 23 ) {
-		AddFeedback("Luke Warm");
-	} else if (distanceFromNumber < 38 ) {
-		AddFeedback("Cool");
-	} else if (distanceFromNumber < 54 ) {
-		AddFeedback("Cold");
+	} else if (distanceFromNumber < 2 && randomNumber > newGuess) {
+		AddFeedback ("Scalding! Guess Higher!");
+	} else if (distanceFromNumber < 2 && randomNumber < newGuess) {
+		AddFeedback ("Scalding! Guess Lower!");
+	} else if (distanceFromNumber < 4 && randomNumber > newGuess) {
+		AddFeedback ("Very Hot! Guess Higher!");
+	} else if (distanceFromNumber < 4 && randomNumber < newGuess) {
+		AddFeedback ("Very Hot! Guess Lower!");
+	} else if (distanceFromNumber < 8 && randomNumber > newGuess) {
+		AddFeedback ("Hot! Guess Higher!");
+	} else if (distanceFromNumber < 8 && randomNumber < newGuess) {
+		AddFeedback ("Hot! Guess Lower!");
+	} else if (distanceFromNumber < 13 && randomNumber > newGuess) {
+		AddFeedback ("Warm, Guess Higher!");
+	} else if (distanceFromNumber < 13 && randomNumber < newGuess) {
+		AddFeedback ("Warm, Guess Lower!");
+	} else if (distanceFromNumber < 23 && randomNumber > newGuess) {
+		AddFeedback ("Luke Warm, Guess Higher!");
+	} else if (distanceFromNumber < 23 && randomNumber < newGuess) {
+		AddFeedback ("Luke Warm, Guess Lower!");
+	} else if (distanceFromNumber < 38 && randomNumber > newGuess) {
+		AddFeedback ("Cool, Guess Higher!");
+	} else if (distanceFromNumber < 38 && randomNumber < newGuess) {
+		AddFeedback ("Cool, Guess Lower!");
+	} else if (distanceFromNumber < 54 && randomNumber > newGuess) {
+		AddFeedback ("Cold, Guess Higher!");
+	} else if (distanceFromNumber < 54 && randomNumber < newGuess) {
+		AddFeedback ("Cold, Guess Lower!");
 	} else {
 		AddFeedback("Ice Cold!");
 	}
@@ -89,12 +103,11 @@ var checkForRepeats = function(newGuess) {
 		if(pastGuesses[x] == newGuess) {
 			AddFeedback("You've already tried that number! Guess again!");
 		} else {
-			
+
 		}
 		// add else statement, remember when to push valid number in array
 		}
 	}
-	
 }
 
 /* --- User inputs guess --*/

@@ -197,10 +197,10 @@ h2 { /*top orange section*/
 	margin: 0 auto;
 }
 
-.game p { /*Guess # text*/
+.game > p { /*Guess # text*/
 	margin-top: 0.5em;
 	font-size: 1.8em;
-	padding-bottom: 0.5em;
+
 	color: #002538;
 }
 
@@ -294,12 +294,6 @@ ul.guessBox { /*box storing guesses*/
 	border-radius: 5px;
 }
 
-#answerSection {
-	background-color: red;
-	padding-top: 30px;
-	padding-bottom: 30px;
-}
-
 ul.guessBox li { /*box around individual numbers*/
 	display: inline;
 	background-color: #0A5378;
@@ -314,6 +308,7 @@ ul.guessBox li { /*box around individual numbers*/
 
 #remainingGuesses { /*text at bottom*/
 	color: #FFFFFF;
+	margin-bottom: 100px;
 }
 
 
