@@ -293,6 +293,13 @@ ul.guessBox { /*box storing guesses*/
 	overflow: auto;
 	border-radius: 5px;
 }
+
+#answerSection {
+	background-color: red;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
 ul.guessBox li { /*box around individual numbers*/
 	display: inline;
 	background-color: #0A5378;
