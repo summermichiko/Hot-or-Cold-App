@@ -94,20 +94,14 @@ $(document).ready(function(){
 		}
 	};
 
-	var checkForRepeats = function(newGuess) { 
-		console.log(newGuess);
-	 //check for repeated numbers
-		if(pastGuesses.length !== 1){
-			for(x=0; x<pastGuesses.length; x++) { 
+	var checkForRepeats = function(newGuess) {  //check for repeated numbers
+		console.log("the new guess is " + newGuess);	
+		for(x=0; x<pastGuesses.length; x++) { 
 			if(pastGuesses[x] == newGuess) {
 				AddFeedback("You've already tried that number! Guess again!");
-			} else {
-
-			}
-			// add else statement, remember when to push valid number in array
-			}
+			} 
 		}
-	}
+	};
 
 	/* --- User inputs guess --*/
 	$("form").submit(function(event){
@@ -122,8 +116,8 @@ $(document).ready(function(){
 			event.preventDefault();
 			pastGuesses.push(newGuess);
 			console.log(pastGuesses);
-			$(".guessBox").append("<li>" + newGuess + "</li>");
 			checkForRepeats(newGuess); //calling function to check for repeats
+			$(".guessBox").append("<li>" + newGuess + "</li>");
 			clearGuess();
 			guessCount++;
 			guessesLeft--;
