@@ -51,7 +51,6 @@ $(document).ready(function(){
 	 
 	 /*--- Display the Feedback ---*/
 	var AddFeedback = function(feedback) {
-		debugger;
 		$("#feedback").text(feedback);
 	};
 
