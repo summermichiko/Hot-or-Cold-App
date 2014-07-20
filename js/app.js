@@ -113,6 +113,7 @@ $(document).ready(function(){
 		/*--- Check if valid number --*/
 		if (newGuess % 1 !== 0 || newGuess > 100 || newGuess < 1) {
 			alert("You have entered an invalid number");
+			clearGuess();
 			return(false);
 		} else {
 			event.preventDefault();
