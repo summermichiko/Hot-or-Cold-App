@@ -96,7 +96,7 @@ $(document).ready(function(){
 
 	var checkForRepeats = function(newGuess) {  //check for repeated numbers
 		console.log("the new guess is " + newGuess);
-		if (newGuess.length > 1) {
+		if (pastGuesses.length > 1) {
 			for(x=0; x<pastGuesses.length; x++) { 
 				if(pastGuesses[x] == newGuess) {
 					AddFeedback("You've already tried that number! Guess again!");
@@ -117,7 +117,7 @@ $(document).ready(function(){
 		} else {
 			event.preventDefault();
 			pastGuesses.push(newGuess);
-			console.log(pastGuesses);
+			console.log("past guesses include " + pastGuesses);
 			checkForRepeats(newGuess); //calling function to check for repeats
 			$(".guessBox").append("<li>" + newGuess + "</li>");
 			clearGuess();
