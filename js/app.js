@@ -148,8 +148,12 @@ $(document).ready(function(){
 		guessCountDown();
 		removePastGuesses();
 		guessCountDisplay();
-		AddFeedback("Make your guess!");
 		$("#answerSection").html("");
+		$(".topSection").show();
+		$(".bottomSection").css({
+			"padding-top": "0",
+			"margin-top": "-10px"
+		}).hide();
 	});
 });
 
