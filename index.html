@@ -1,71 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-
 	<head>
 		<title>Hot or Cold Game</title>
-		<!-- Meta Tags -->
-		<meta charset="utf-8"/>
-		<!-- Stylesheets -->
+		<meta name="viewport" content="width=device-width" />
 		<link rel="stylesheet" href="styles/reset.css">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,600,700,800,900,500' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="styles/style.css"/> 
-		<!-- JavaScript -->
+		<link rel="stylesheet" href="styles/style.css"/>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script type="text/javascript" src="js/app.js"></script>
 	</head>
+	<script type="text/javascript">
+	var userHeight = $(window).height();
+	document.write('<body style=" min-height:' + userHeight + 'px;"');
 
-	<body>
-		
-		<header> <!--Header -->
-
-			<!-- Top Navigation -->
-			<nav> 
+	</script>
+		<header>
+			<nav>
 				<ul class="clearfix">
-					<li><a class="what" href="#">What ?</a></li>
-					<li><a class="new" href="#">+ New Game</a></li>
+					<li>
+						<a class="new" href="#">+ New Game</a>
+					</li>
 				</ul>
 			</nav>
-			
-			<!-- Modal Information Box -->
-			<div class="overlay" id="modal">
-				<div class="content">
-					<h3>How do I play?</h3>
-					<div>
-						<p>This is a Hot or Cold Number Guessing Game. The game goes like this: </p>
-						<ul>
-							<li>1. I pick a <strong>random secret number</strong> between 1 and 100 and keep it hidden.</li>
-							<li>2. You have <strong>5 guesses</strong> to figure out the hidden secret number.</li>
-							<li>3. You will <strong>get feedback</strong> on how close ("hot") or far ("cold") your guess is.</li>
-						</ul>
-						<p>So, are you ready?</p>
-						<a class="close" href="#">Got It!</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- logo text -->
 			<h1>HOT or COLD</h1>
-
 		</header>
-
-		<section class="game"> <!-- Guessing Section -->
-			
-			<h2 id="feedback">Make your Guess!</h2>
-
-			<form>
-				<input type="text" name="userGuess" id="userGuess" class="text" maxlength="3" autocomplete="off" placeholder="Enter your Guess" required/>
-      			<input type="submit" id="guessButton" class="button" name="submit" value="Make a Guess"/>
-      			<input type="submit" id="hintButton" class="button" name="submit" value="Get a Hint"/>
-			</form>
-
-      		<p>Guess #<span id="count">0</span></p>
-      		<p id="answerSection"></p>
-			<ul id="guessList" class="guessBox clearfix">
-			</ul>
-			<p id="remainingGuesses"><span id="countDown">5</span> Guesses Remaining</p>
-
-		</section>
+		<p class="instructions">I'll pick a secret number between 1 and 100, and you'll have 5 chances to guess it! I'll let you know how hot or cold you are after each guess.</p>
+		<div class="game">
+			<div class="topSection">
+				<p id="remainingGuesses"><span id="countDown">Go ahead, you've got 5</span> guesses left</p>
+				<form>
+					<input type="text" name="userGuess" id="userGuess" class="text" maxlength="3" autocomplete="off" placeholder="Enter your Guess" required/><button type="submit" id="guessButton" class="button" name="submit">Guess</button>
+				</form>
+			</div>
+			<div class="bottomSection">
+				<h2 id="feedback"></h2>
+	      		<p id="answerSection"></p>
+				<ul id="guessList" class="guessBox"></ul>
+			</div>
+		</div>
 		<script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -74,7 +47,5 @@
 			ga('create', 'UA-52980513-1', 'auto');
 			ga('send', 'pageview');
 		</script>
-
 	</body>
-
 </html>

@@ -1,29 +1,20 @@
 $(document).ready(function(){
-	
-	/*--- Display information modal box ---*/
-  	$(".what").click(function(){
-    	$(".overlay").fadeIn(1000);
-
-  	});
-
-  	/*--- Hide information modal box ---*/
-  	$("a.close").click(function(){
-  		$(".overlay").fadeOut(1000);
-  	});
 
 	/*--- Declare Variables ---*/
-	var guessCount = 0;
-	var newGuess;
-	var randomNumber;
-	var distanceFromNumber;
-	var wonGame = false;
-	var pastGuesses =[];
-	var guessesLeft = 5;
+	var guessCount = 0,
+		newGuess,
+		randomNumber,
+		distanceFromNumber,
+		wonGame = false,
+		pastGuesses =[],
+		guessesLeft = 5;
+
+	/*--- initial focus into input ---*/
+	$("#userGuess").focus()
 
 	/*--- Generate a random number ---*/
 	var generateNewNumber = function(){
 		randomNumber = Math.floor((Math.random()*100)+1);
-		console.log("randomNumber is " +randomNumber);
 	};
 
 	/* --- On Page Load, generate random number */
@@ -39,28 +30,30 @@ $(document).ready(function(){
 		$("ul.guessBox li").remove();
 	};
 
-	/*--- Display the number of guesses taken ---*/
+	/*--- Display the number of guesses remaining ---*/
 	var guessCountDisplay = function() {
-		$("#count").text(guessCount);
+		$("#count").text(guessCount).fadeIn();
 	};
 
 	/*--- Display the number of guesses left ---*/
 	var guessCountDown = function() {
 		$("#countDown").text(guessesLeft);
 	};
-	 
+
 	 /*--- Display the Feedback ---*/
 	var AddFeedback = function(feedback) {
-		$("#feedback").text(feedback);
+		$("#feedback").text(feedback).hide().fadeIn();
 	};
 
 	 /*--- Check how far the guess is and provide feedback---*/
 	var checkTemperature = function() {
+		console.log(randomNumber)
 		distanceFromNumber = (Math.abs(randomNumber - newGuess));
 		if (distanceFromNumber === 0) {
-			AddFeedback("You Got It!!!");
+			AddFeedback("You Got It!");
 			$("#userGuess").val(randomNumber + " is correct!");
 			wonGame = true;
+			return;
 		} else if (distanceFromNumber < 2 && randomNumber > newGuess) {
 			AddFeedback ("Scalding! Guess Higher!");
 		} else if (distanceFromNumber < 2 && randomNumber < newGuess) {
@@ -94,56 +87,60 @@ $(document).ready(function(){
 		}
 	};
 
-	var checkForRepeats = function(newGuess) {  //check for repeated numbers
-		console.log("the new guess is " + newGuess);
-		if (pastGuesses.length > 1) {
-			for(x=0; x<pastGuesses.length; x++) { 
-				if(pastGuesses[x] == newGuess) {
-					AddFeedback("You've already tried that number! Guess again!");
-				} 
+	// check for repeated numbers
+	var checkForRepeats = function(newGuess) {
+		if (pastGuesses.length >= 1) {
+			for (var x=0; x<pastGuesses.length; x++) {
+				if(newGuess == pastGuesses[x]) {
+					AddFeedback("You've already tried that number!");
+				}
 			}
 		}
 	};
 
 	/* --- User inputs guess --*/
-	$("form").submit(function(event){
-	event.preventDefault();
-	if (wonGame === false) {
-		newGuess = +$("#userGuess").val();
-		/*--- Check if valid number --*/
-		if (newGuess % 1 !== 0 || newGuess > 100 || newGuess < 1) {
-			alert("You have entered an invalid number");
-			clearGuess();
-			return(false);
-		} else {
-			event.preventDefault();
-			pastGuesses.push(newGuess);
-			console.log("past guesses include " + pastGuesses);
-			checkForRepeats(newGuess); //calling function to check for repeats
-			$(".guessBox").append("<li>" + newGuess + "</li>");
-			clearGuess();
-			guessCount++;
-			guessesLeft--;
-			guessCountDisplay();
-			guessCountDown();
-			checkTemperature();
-			if(newGuess !== randomNumber && guessesLeft < 1) { //countDown
-				AddFeedback("Sorry, try again!")
+	$("form").submit(function(e){
+		e.preventDefault();
+		if (wonGame === false) {
+			newGuess = +$("#userGuess").val();
+			// check if valid number
+			if (newGuess % 1 !== 0 || newGuess > 100 || newGuess < 1) {
+				alert("You have entered an invalid number");
+				clearGuess();
+				return(false);
+			} else {
+				$(".bottomSection").fadeIn();
+				if (guessesLeft == 0) {
+					return;
+				} else {
+					e.preventDefault();
+					$(".guessBox").append("<li>" + newGuess + "</li>").hide().fadeIn();
+					clearGuess();
+					checkTemperature();
+					checkForRepeats(newGuess);
+					pastGuesses.push(newGuess);
+					guessCount++;
+					guessesLeft--;
+					guessCountDisplay();
+					guessCountDown();
+					if(newGuess !== randomNumber && guessesLeft < 1) {
+						AddFeedback("Bummer, the answer was " + randomNumber + ".");
+						$(".topSection").hide();
+						$(".bottomSection").css({
+							"padding-top": "30px",
+							"margin-top": "15px"
+						});
+					}
+				}
 			}
+		} else {
+			AddFeedback("You've already won! Start a new game.");
 		}
-	} else {
-		AddFeedback("You've already won! Start a new game.");
-	}
 	});
-
-	/* --- "Get a Hint Button" --- */
-	$("#hintButton").click(function() {
-		$("#answerSection").append("The answer is " + randomNumber + ".");
-	});	
 
 	/*-- "+ New Game" click to reset --*/
 	$(".new").click(function(){
-		generateNewNumber(); 
+		generateNewNumber();
 		clearGuess();
 		guessCount = 0;
 		wonGame = false;
