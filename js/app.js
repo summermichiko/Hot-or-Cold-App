@@ -37,7 +37,7 @@ $(document).ready(function(){
 
 	/*--- Display the number of guesses left ---*/
 	var guessCountDown = function() {
-		$("#countDown").text(guessesLeft);
+		$("#countDown").text("You've got " + guessesLeft);
 	};
 
 	 /*--- Display the Feedback ---*/
@@ -130,6 +130,9 @@ $(document).ready(function(){
 							"padding-top": "30px",
 							"margin-top": "15px"
 						});
+						$("#feedback").append(
+							'<button class="playAgainButton">Try Again</button>'
+						);
 					}
 				}
 			}
@@ -138,8 +141,8 @@ $(document).ready(function(){
 		}
 	});
 
-	/*-- "+ New Game" click to reset --*/
-	$(".new").click(function(){
+	/*-- play again button click to reset --*/
+	$(".bottomSection").on("click", ".playAgainButton", function(){
 		generateNewNumber();
 		clearGuess();
 		guessCount = 0;

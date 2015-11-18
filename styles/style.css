@@ -78,30 +78,10 @@ body {
 	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
 }
 
-/* Header Styles */
-nav {
-	position: relative;
-	height: 50px;
-	padding: 15px;
-}
-
-nav a {
-	text-decoration: none;
-	color: #fff;
-}
-
-nav ul li {
-	text-transform: uppercase;
-	font-weight: 700;
-	font-size: 18px;
-	font-family: Open Sans;
-	float: right;
-}
-
 h1 {
 	font-weight: 900;
 	font-size: 50px;
-	padding-top: 20px;
+	padding-top: 90px;
 	padding-bottom: 20px;
 	color: #fff;
 }
@@ -117,7 +97,7 @@ h1 {
 	font-size: 18px;
 }
 
-/* main green section */
+/* main game section */
 .game {
 	position: relative;
 	background-color: #efefef;
@@ -146,7 +126,7 @@ form {
 
 .bottomSection {
 	display: none;
-	margin-bottom: 40px;
+	margin-bottom: 60px;
 	margin-top: -10px;
 }
 
@@ -239,10 +219,10 @@ input:focus {
 
 /* box storing guesses */
 ul.guessBox {
-	height: 90px;
+	height: 80px;
 	margin: 0;
 	background-color: #efefef;
-	padding: 27px;
+	padding: 21px;
 	display: block;
 	border-radius: 0 0 4px 4px;
 	color: #fff;
@@ -252,8 +232,8 @@ ul.guessBox {
 ul.guessBox li {
 	display: inline;
 	background-color: #0A5378;
-	padding: 10px;
-	padding-bottom: 12px;
+	padding: 7px;
+	padding-bottom: 9px;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
@@ -262,29 +242,48 @@ ul.guessBox li {
 	color: #fff;
 }
 
+.playAgainButton {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15px;
+	background-color: #FF890A;
+	color: #fff;
+	font-size: 20px;
+	border: none;
+	padding: 10px 25px;
+	border-radius: 2px;
+	border-bottom: 2px solid #DB7200;
+	cursor: pointer;
+}
+
+.playAgainButton:focus {
+	outline: none;
+}
+
 @media (max-width: 767px) {
-	nav ul li {
-		font-size: 13px;
-	}
 	h1 {
 		font-size: 35px;
+		padding-top: 50px;
 	}
 	.instructions {
 		width: 100%;
-		padding-left: 15px;
-		padding-right: 15px;
 		line-height: 25px;
 		font-size: 17px;
 	}
 	#remainingGuesses {
-		font-size: 20px;
+		font-size: 17px;
 		line-height: 25px;
 	}
+	body {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
 	.game {
-		width: 280px;
+		width: 100%;
 	}
 	input {
-		width: 160px;
+		width: 190px;
 		height: 35px;
 		padding-left: 10px;
 	}
@@ -298,6 +297,10 @@ ul.guessBox li {
 		font-size: 15px;
 	}
 	#feedback {
-		font-size: 15px;
+		font-size: 20px;
+	}
+	.playAgainButton {
+		margin-top: 20px;
+		margin-bottom: 10px;
 	}
 }
