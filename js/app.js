@@ -12,6 +12,9 @@ $(document).ready(function(){
 	/*--- initial focus into input ---*/
 	$("#userGuess").focus()
 
+	/*--- initial text setting ---*/
+	$("#countDown").text("You've got " + guessesLeft + " guesses left");
+
 	/*--- Generate a random number ---*/
 	var generateNewNumber = function(){
 		randomNumber = Math.floor((Math.random()*100)+1);
@@ -19,6 +22,7 @@ $(document).ready(function(){
 
 	/* --- On Page Load, generate random number */
 	generateNewNumber();
+	console.log(randomNumber)
 
 	/*--- Clear guess text section ---*/
 	var clearGuess = function() {
@@ -37,7 +41,11 @@ $(document).ready(function(){
 
 	/*--- Display the number of guesses left ---*/
 	var guessCountDown = function() {
-		$("#countDown").text("You've got " + guessesLeft);
+		if (guessesLeft == 1) {
+			$("#countDown").text("You've got " + guessesLeft + " guess left");
+		} else {
+			$("#countDown").text("You've got " + guessesLeft + " guesses left");
+		}
 	};
 
 	 /*--- Display the Feedback ---*/
@@ -47,43 +55,51 @@ $(document).ready(function(){
 
 	 /*--- Check how far the guess is and provide feedback---*/
 	var checkTemperature = function() {
-		console.log(randomNumber)
 		distanceFromNumber = (Math.abs(randomNumber - newGuess));
 		if (distanceFromNumber === 0) {
-			AddFeedback("You Got It!");
-			$("#userGuess").val(randomNumber + " is correct!");
+			var feedbackString = "You got it! " + randomNumber + " is correct!"
+			AddFeedback(feedbackString);
+			// $("#userGuess").val(randomNumber + " is correct!");
 			wonGame = true;
+			$(".topSection").hide();
+			$(".bottomSection").css({
+				"padding-top": "30px",
+				"margin-top": "15px"
+			});
+			$("#feedback").append(
+				'<button class="playAgainButton">Play Again</button>'
+			);
 			return;
 		} else if (distanceFromNumber < 2 && randomNumber > newGuess) {
-			AddFeedback ("Scalding! Guess Higher!");
+			AddFeedback ("Scalding hot! Guess higher!");
 		} else if (distanceFromNumber < 2 && randomNumber < newGuess) {
-			AddFeedback ("Scalding! Guess Lower!");
+			AddFeedback ("Scalding hot! Guess lower!");
 		} else if (distanceFromNumber < 4 && randomNumber > newGuess) {
-			AddFeedback ("Very Hot! Guess Higher!");
+			AddFeedback ("Very hot! Guess higher!");
 		} else if (distanceFromNumber < 4 && randomNumber < newGuess) {
-			AddFeedback ("Very Hot! Guess Lower!");
+			AddFeedback ("Very hot! Guess lower!");
 		} else if (distanceFromNumber < 8 && randomNumber > newGuess) {
-			AddFeedback ("Hot! Guess Higher!");
+			AddFeedback ("Hot! Guess higher!");
 		} else if (distanceFromNumber < 8 && randomNumber < newGuess) {
-			AddFeedback ("Hot! Guess Lower!");
+			AddFeedback ("Hot! Guess lower!");
 		} else if (distanceFromNumber < 13 && randomNumber > newGuess) {
-			AddFeedback ("Warm! Guess Higher!");
+			AddFeedback ("Warm! Guess higher!");
 		} else if (distanceFromNumber < 13 && randomNumber < newGuess) {
-			AddFeedback ("Warm! Guess Lower!");
+			AddFeedback ("Warm! Guess lower!");
 		} else if (distanceFromNumber < 23 && randomNumber > newGuess) {
-			AddFeedback ("Luke Warm! Guess Higher!");
+			AddFeedback ("Luke warm! Guess higher!");
 		} else if (distanceFromNumber < 23 && randomNumber < newGuess) {
-			AddFeedback ("Luke Warm! Guess Lower!");
+			AddFeedback ("Luke warm! Guess lower!");
 		} else if (distanceFromNumber < 38 && randomNumber > newGuess) {
-			AddFeedback ("Cool! Guess Higher!");
+			AddFeedback ("Cool! Guess higher!");
 		} else if (distanceFromNumber < 38 && randomNumber < newGuess) {
-			AddFeedback ("Cool! Guess Lower!");
+			AddFeedback ("Cool! Guess lower!");
 		} else if (distanceFromNumber < 54 && randomNumber > newGuess) {
-			AddFeedback ("Cold! Guess Higher!");
+			AddFeedback ("Cold! Guess higher!");
 		} else if (distanceFromNumber < 54 && randomNumber < newGuess) {
-			AddFeedback ("Cold! Guess Lower!");
+			AddFeedback ("Cold! Guess lower!");
 		} else {
-			AddFeedback("Brr! Ice Cold!");
+			AddFeedback("Brr! Ice cold!");
 		}
 	};
 
