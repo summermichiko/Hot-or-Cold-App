@@ -59,11 +59,10 @@ $(document).ready(function(){
 		if (distanceFromNumber === 0) {
 			var feedbackString = "You got it! " + randomNumber + " is correct!"
 			AddFeedback(feedbackString);
-			// $("#userGuess").val(randomNumber + " is correct!");
 			wonGame = true;
 			$(".topSection").hide();
 			$(".bottomSection").css({
-				"padding-top": "30px",
+				"padding-top": "25px",
 				"margin-top": "15px"
 			});
 			$("#feedback").append(
@@ -143,7 +142,7 @@ $(document).ready(function(){
 						AddFeedback("Bummer, the answer was " + randomNumber + ".");
 						$(".topSection").hide();
 						$(".bottomSection").css({
-							"padding-top": "30px",
+							"padding-top": "25px",
 							"margin-top": "15px"
 						});
 						$("#feedback").append(
