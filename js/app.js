@@ -10,7 +10,7 @@ $(document).ready(function(){
 		guessesLeft = 5;
 
 	/*--- initial focus into input ---*/
-	$("#userGuess").focus()
+	$("#userGuess").focus();
 
 	/*--- initial text setting ---*/
 	$("#countDown").text("You've got " + guessesLeft + " guesses left");
@@ -22,7 +22,6 @@ $(document).ready(function(){
 
 	/* --- On Page Load, generate random number */
 	generateNewNumber();
-	console.log(randomNumber)
 
 	/*--- Clear guess text section ---*/
 	var clearGuess = function() {
@@ -57,7 +56,7 @@ $(document).ready(function(){
 	var checkTemperature = function() {
 		distanceFromNumber = (Math.abs(randomNumber - newGuess));
 		if (distanceFromNumber === 0) {
-			var feedbackString = "You got it! " + randomNumber + " is correct!"
+			var feedbackString = "You got it! " + randomNumber + " is correct!";
 			AddFeedback(feedbackString);
 			wonGame = true;
 			$(".topSection").hide();
@@ -125,7 +124,7 @@ $(document).ready(function(){
 				return(false);
 			} else {
 				$(".bottomSection").fadeIn();
-				if (guessesLeft == 0) {
+				if (guessesLeft === 0) {
 					return;
 				} else {
 					e.preventDefault();
@@ -174,5 +173,3 @@ $(document).ready(function(){
 		}).hide();
 	});
 });
-
-

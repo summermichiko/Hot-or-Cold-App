@@ -60,61 +60,57 @@ table {
 }
 
 body {
-	/*background-image: url("images/hotColdBackgroundImageFinal.png");
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-size: cover;*/
-	background-color: #396C6E;
-	position: relative;
-	width: 100%;
-	height: 100%;
-	margin: 0;
-	font-family: Raleway;
-	text-align: center;
+	background-color: #396c6e;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 	-webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
 	-moz-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
 	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+	font-family: Raleway;
+	height: 100%;
+	margin: 0;
+	position: relative;
+	text-align: center;
+	width: 100%;
 }
 
 h1 {
-	font-weight: 900;
-	font-size: 50px;
-	padding-top: 103px;
-	padding-bottom: 20px;
 	color: #fff;
+	font-size: 50px;
+	font-weight: 900;
+	padding-bottom: 20px;
+	padding-top: 103px;
 }
 
 .instructions {
 	color: white;
-	width: 600px;
 	display: block;
+	font-size: 18px;
+	line-height: 25px;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
-	line-height: 25px;
-	font-size: 18px;
+	width: 600px;
 }
 
 /* main game section */
 .game {
-	position: relative;
 	background-color: #efefef;
-	width: 600px;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 	margin: 0 auto;
 	margin-top: 20px;
+	position: relative;
+	width: 600px;
 }
 
 #remainingGuesses {
 	color: #545454;
-	padding-top: 25px;
-	margin-bottom: 15px;
 	font-size: 17px;
+	margin-bottom: 15px;
+	padding-top: 25px;
 }
 
 form {
@@ -133,40 +129,33 @@ form {
 
 #feedback {
 	background-color: #efefef;
-	padding-left: 15px;
-	padding-right: 15px;
-	padding-top: 0;
-	padding-bottom: 5px;
+	color: #ff890a;
+	display: block;
 	font-size: 20px;
 	font-weight: 700;
-	display: block;
-	color: #FF890A;
-	margin-top: 0;
-	border-radius: 0;
 	line-height: 27px;
+	margin-top: 0;
+	padding: 0 15px 5px;
+	border-radius: 0;
 }
 
 /*guess input*/
 input {
-	width: 320px;
-	height: 40px;
-	display: inline-block;
-	padding: 0;
-	padding-left: 20px;
-	margin: 0;
-	background-color: #FFFFFF;
-	color: #002538;
+	background-color: #fff;
+	background-image: none !important;
 	border: none;
 	-webkit-border-radius: 2px 0 0 2px;
 	-moz-border-radius: 2px 0 0 2px;
 	border-radius: 2px 0 0 2px;
+	color: #002538;
+	display: inline-block;
 	font-family: Raleway;
-	background-image: none !important;
-}
-
-input.text {
 	font-size: 20px;
-	font-family: Raleway;
+	height: 40px;
+	padding: 0;
+	padding-left: 20px;
+	margin: 0;
+	width: 320px;
 }
 
 input:focus {
@@ -174,42 +163,42 @@ input:focus {
 }
 
 ::-webkit-input-placeholder {
-   color: #95a5a6;
+	color: #95a5a6;
 }
 
 /* Firefox 18- */
 :-moz-placeholder {
-   color: #95a5a6;
+	color: #95a5a6;
 }
 
 /* Firefox 19+ */
 ::-moz-placeholder {
-   color: #95a5a6;
+	color: #95a5a6;
 }
 
 :-ms-input-placeholder {
-   color: #95a5a6;
+	color: #95a5a6;
 }
 
 /*guess button*/
 .button {
-	background-color: #FF890A;
-	color: #fff;
+	background-color: #ff890a;
 	border: none;
-	padding-left: 20px;
-	padding-right: 20px;
-	height: 40px;
-	font-size: 20px;
-	font-family: Raleway;
-	display: inline-block;
 	-webkit-border-radius: 0 2px 2px 0;
 	-moz-border-radius: 0 2px 2px 0;
 	border-radius: 0 2px 2px 0;
+	color: #fff;
 	cursor: pointer;
+	display: inline-block;
+	font-family: Raleway;
+	font-size: 20px;
+	height: 40px;
+	padding-left: 20px;
+	padding-right: 20px;
 }
 
 .button:hover {
-	background-color: #F28005;
+	background-color: #f28005;
 }
 
 .button:focus {
@@ -219,51 +208,48 @@ input:focus {
 /*answer holder*/
 #answerSection {
 	color: #efefef;
-	font-weight: 700;
 	font-size: 15px;
+	font-weight: 700;
 	margin-top: 0;
 }
 
 /* box storing guesses */
 ul.guessBox {
-	height: 70px;
-	margin: 0;
 	background-color: #efefef;
-	padding: 5px;
-	display: block;
 	border-radius: 0 0 4px 4px;
 	color: #fff;
+	display: block;
+	height: 70px;
+	margin: 0;
+	padding: 5px;
 }
 
 /* box around individual numbers */
 ul.guessBox li {
-	display: inline-block;
-	background-color: #0A5378;
-	padding-bottom: 9px;
-	padding-top: 8px;
+	background-color: #0a5378;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
-	width: 37px;
-	text-align: center;
-	margin: 5px;
 	color: #fff;
+	display: inline-block;
+	margin: 5px;
+	padding-bottom: 9px;
+	padding-top: 8px;
+	text-align: center;
+	width: 37px;
 }
 
 .playAgainButton {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 15px;
-	margin-bottom: 10px;
-	background-color: #FF890A;
-	color: #fff;
-	font-size: 20px;
+	background-color: #ff890a;
 	border: none;
-	padding: 10px 25px;
-	border-radius: 2px;
 	border-bottom: 2px solid #DB7200;
+	border-radius: 2px;
+	color: #fff;
 	cursor: pointer;
+	display: block;
+	font-size: 20px;
+	margin: 15px auto 10px;
+	padding: 10px 25px;
 }
 
 .playAgainButton:focus {
@@ -276,9 +262,9 @@ ul.guessBox li {
 		padding-top: 50px;
 	}
 	.instructions {
-		width: 100%;
-		line-height: 25px;
 		font-size: 17px;
+		line-height: 25px;
+		width: 100%;
 	}
 	#remainingGuesses {
 		font-size: 17px;
@@ -292,24 +278,24 @@ ul.guessBox li {
 		width: 100%;
 	}
 	input {
-		width: 190px;
 		height: 35px;
 		padding-left: 10px;
+		width: 190px;
 	}
 	input.text {
 		font-size: 15px;
 	}
 	.button {
+		font-size: 15px;
+		height: 35px;
 		padding-left: 10px;
 		padding-right: 10px;
-		height: 35px;
-		font-size: 15px;
 	}
 	#feedback {
 		font-size: 20px;
 	}
 	.playAgainButton {
-		margin-top: 20px;
 		margin-bottom: 10px;
+		margin-top: 20px;
 	}
 }
